@@ -29,6 +29,17 @@ test("Exampling through the multiverse", async () => {
 
     // Typing gets a bit squiffy with nested includes
     // basically, TS doesn't know it exists
+    // interface UserWithNotes {
+    //     is: string,
+    //     name: string,
+    //     notes: NoteAttributes[]
+    // };
+
+    // const stringArray: (string | number)[] = ["string", 0];
+    // const stringTuple: [string, number] = ["string", 0];
+
+    // const [sts, stn] = stringArray;
+
     // @ts-ignore
     expect(refetch.dataValues.notes[0].title).toBe('Note Title')
 
@@ -69,8 +80,8 @@ test("Exampling through the multiverse", async () => {
         include: 'user'
     })
     const trimmedParentUser = {
-        id: refetchedFinal.id,
-        name: refetchedFinal.name
+        id: parentUser.id,
+        name: parentUser.name
     }
     expect(trimmedParentUser).toStrictEqual(og)
 })
